@@ -2,13 +2,16 @@ package com.example.bundiphonesandaccessories
 
 import android.content.Intent
 import android.os.Bundle
+import android.service.autofill.UserData
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.loopj.android.http.RequestParams
 
 class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,9 +23,7 @@ class SignUpActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
         //code comes here
-
         //variables for all the views
 
         val usernameEditText : EditText = findViewById(R.id.username)
@@ -49,21 +50,26 @@ class SignUpActivity : AppCompatActivity() {
             val phone = phoneEditText.text.toString()
             val password = passwordEditText.text.toString()
 
-            //add the data to the container
-            userData.put("username", username)
-            userData.put("email", email)
-            userData.put("phone",phone)
-            userData.put("password", password)
+            if (username!="" && email!="" && phone!="" && password!=""){
+                //add the data to the container
+                userData.put("username", username)
+                userData.put("email", email)
+                userData.put("phone",phone)
+                userData.put("password", password)
 
-            //api sign up endpoint
-            val api = "https://bundi.alwaysdata.net/api/signup"
+                //api sign up endpoint
+                val api = "https://bundi.alwaysdata.net/api/signup"
 
-            //get the api helper
+                //get the api helper
 
-            val helper = ApiHelper(applicationContext)
-            helper.post(api, userData)
-
+                val helper = ApiHelper(applicationContext)
+                helper.post(api, userData)
+            }else{
+                Toast.makeText(applicationContext,"Please fill out the form completely", Toast.LENGTH_SHORT).show()
+            }
 
         }
+
+
     }
 }

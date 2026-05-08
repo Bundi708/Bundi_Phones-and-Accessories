@@ -5,10 +5,12 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.loopj.android.http.RequestParams
 
 class SignInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,24 +43,28 @@ class SignInActivity : AppCompatActivity() {
         loginBtn.setOnClickListener {
             //create user data variable
 
-//            val userData = RequestParams()
+            val userData = RequestParams()
 
             //retrieve the value i.e email and password from the views
 
             val email = emailEditText.text.toString()
             val password = passwordEditText.text.toString()
 
-            //add email and password to userdata variable
+            if (email!="" && password!=""){
+                //add email and password to userdata variable
 
-//            userData.put("email", email)
-//            userData.put("password", password)
+                userData.put("email", email)
+                userData.put("password", password)
 
-            //API sign in end points
-            val api = "https://bundi.alwaysdata.net/api/signin"
+                //API sign in end points
+                val api = "https://bundi.alwaysdata.net/api/signin"
 
-            //send userdata to api using api helper
-//            val helper = ApiHelper(applicationContext)
-//            helper.post_login(api, userData)
+                //send userdata to api using api helper
+                val helper = ApiHelper(applicationContext)
+                helper.post_login(api, userData)
+            }else{
+                Toast.makeText(applicationContext,"please fill out the form completely", Toast.LENGTH_SHORT).show()
+            }
 
 
 

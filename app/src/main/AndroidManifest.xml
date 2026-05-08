@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,6 +13,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BundiPhonesAndAccessories">
+        <activity
+            android:name=".PaymentActivity"
+            android:exported="false" />
+        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+        <!-- Replace "ca-app-pub-2564728430050123~YOUR_APP_ID" with your actual App ID from AdMob dashboard -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713" />
+
         <activity
             android:name=".LogOutActivity"
             android:exported="false" />
@@ -22,12 +33,6 @@
             android:exported="false" />
         <activity
             android:name=".SignUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".shapes1"
-            android:exported="false" />
-        <activity
-            android:name=".shape1"
             android:exported="false" />
         <activity
             android:name=".SignInActivity"

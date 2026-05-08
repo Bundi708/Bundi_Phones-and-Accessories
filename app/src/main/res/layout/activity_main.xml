@@ -50,7 +50,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:padding="10dp"
-                android:background="@color/green"
+                android:backgroundTint="@color/green"
                 android:id="@+id/signup"
                 android:layout_margin="10dp"/>
 
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:text="Sign In"
                 android:textSize="20sp"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="@color/green"
                 android:padding="10dp"
                 android:layout_margin="10dp"
                 android:textStyle="bold"
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:text="About Us"
                 android:textSize="20sp"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="@color/green"
                 android:padding="10dp"
                 android:layout_margin="10dp"
                 android:textStyle="bold"
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:text="Contact Us"
                 android:textSize="20sp"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="@color/green"
                 android:padding="10dp"
                 android:layout_margin="10dp"
                 android:textStyle="bold"
@@ -91,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:text="Log Out"
                 android:textSize="20sp"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="@color/green"
                 android:padding="10dp"
                 android:layout_margin="10dp"
                 android:textStyle="bold"
@@ -100,4 +100,24 @@
 
         </LinearLayout>
     </HorizontalScrollView>
-</LinearLayout>
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_bar"
+        android:indeterminateTint="@color/white"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/recycler_view"
+        tools:listitem="@layout/singleitem"/>
+    <com.google.android.gms.ads.AdView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/adView"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-2564728430050123/2828254212"/>
+    </LinearLayout>
