@@ -14,9 +14,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BundiPhonesAndAccessories">
         <activity
+            android:name=".SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".PaymentActivity"
-            android:exported="false" />
-        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+            android:exported="false" /> <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <!-- Replace "ca-app-pub-2564728430050123~YOUR_APP_ID" with your actual App ID from AdMob dashboard -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
@@ -39,13 +47,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>
